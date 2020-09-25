@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">HKR</string>
+    <string name="Email_signup">Email</string>
+    <string name="Email">Email</string>
+    <string name="Password">Password</string>
+    <string name="Register">Register</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign up</string>
+    <string name="log_in">Log in</string>
+    <string name="Title_login">Hiker</string>
+    <string name="forgot_login">Forgot?</string>
+</resources>
