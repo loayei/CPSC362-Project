@@ -3,5 +3,7 @@
     <color name="colorPrimary">#64DD17</color>
     <color name="colorPrimaryDark">#1faa00</color>
     <color name="colorAccent">#651FFF</color>
-    <color name="backgroundApp">#e0e0e0 </color>
+    <color name="backgroundApp">#e0e0e0</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

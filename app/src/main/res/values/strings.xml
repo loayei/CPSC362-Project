@@ -13,4 +13,7 @@
     <string name="phone_number">Phone number</string>
     <string name="create_an_account">Create an account</string>
     <string name="hiker">Hiker</string>
+    <string name="title_activity_welcome">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
