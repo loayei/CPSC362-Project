@@ -20,7 +20,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
         android:contentDescription="@string/Title_login" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="143dp"
