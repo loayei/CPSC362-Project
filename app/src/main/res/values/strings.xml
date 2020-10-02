@@ -12,4 +12,5 @@
     <string name="first_name">First Name</string>
     <string name="phone_number">Phone number</string>
     <string name="create_an_account">Create an account</string>
+    <string name="hiker">Hiker</string>
 </resources>
