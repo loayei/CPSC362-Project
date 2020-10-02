@@ -5,13 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
 
         loginButton.setOnClickListener {
@@ -24,6 +26,17 @@ class MainActivity : AppCompatActivity() {
 
             Log.d("MainActivity", "Email is: " + email)
             Log.d("MainActivity", "Password: $password")
+
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener {
+                    if(!it.isSuccessful) return@addOnCompleteListener
+                    Log.d("Login", "Login successful ${it.result?.user?.uid}")
+                    val user = FirebaseAuth.getInstance().currentUser
+                }
+                .addOnFailureListener {
+                    Toast.makeText(this, "Log in failed: ${it.message}", Toast.LENGTH_LONG).show()
+                }
+
         }
 
         signUp_text_login.setOnClickListener {
