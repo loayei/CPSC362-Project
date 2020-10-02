@@ -8,4 +8,8 @@
     <string name="log_in">Log in</string>
     <string name="Title_login">Hiker</string>
     <string name="forgot_login">Forgot?</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="phone_number">Phone number</string>
+    <string name="create_an_account">Create an account</string>
 </resources>
