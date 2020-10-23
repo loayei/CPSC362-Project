@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#e0e0e0">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="383dp"
+        android:layout_height="146dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginRight="14dp"
+        android:gravity="center_horizontal"
+        android:padding="20dp"
+        android:text="Hiker"
+        android:fontFamily="@font/lobster"
+        android:textColor="#64DD17"
+        android:textSize="72sp"
+        android:typeface="normal" />
+
+
+    <Button
+        android:id="@+id/coordinate_button"
+        android:layout_width="383dp"
+        android:layout_height="82dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="14dp"
+        android:background="#651FFF"
+        android:padding="20dp"
+        android:text="Get Coordinates"
+        android:textSize="20sp"
+        android:textColor="#e0e0e0" />
+
+    <TextView
+        android:id="@+id/coordinate_text_box"
+        android:layout_width="match_parent"
+        android:layout_height="93dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:background="#D8FFFFFF"
+        android:gravity="center_horizontal"
+        android:textColor="#651FFF"
+        android:textSize="15sp"/>
+
+</LinearLayout>
