@@ -19,7 +19,7 @@ private const val PERMISSION_REQUEST = 10
 
 class GPSActivity : AppCompatActivity() {
 
-    lateinit var locationManager: LocationManager
+    private lateinit var locationManager: LocationManager
     private var GPSsuccess = false
     private var GPSlocale: Location? = null
 
