@@ -2,6 +2,7 @@ package com.example.hikerapp
 
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -30,6 +31,12 @@ class RegistrationActivity : AppCompatActivity(){
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener {
                     if (!it.isSuccessful) return@addOnCompleteListener
+                    Log.d("Registration", "User successfully registered")
+                    finish()
+                }
+                .addOnFailureListener {
+                    Log.d("Registration", "Failed to register user")
+                    Toast.makeText(this, "Failed to register user: ${it.message}", Toast.LENGTH_SHORT).show()
                 }
         }
 

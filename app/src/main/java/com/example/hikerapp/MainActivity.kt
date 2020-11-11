@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -32,9 +33,13 @@ class MainActivity : AppCompatActivity() {
                     if(!it.isSuccessful) return@addOnCompleteListener
                     Log.d("Login", "Login successful ${it.result?.user?.uid}")
                     val user = FirebaseAuth.getInstance().currentUser
+                    val next = Intent(this, MessagingActivity::class.java)
+                    startActivity(next)
                 }
                 .addOnFailureListener {
-                    Toast.makeText(this, "Log in failed: ${it.message}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Log in failed: ${it.message}", Toast.LENGTH_SHORT).show()
+
+                    Log.d("Login", "Login unsuccessful")
                 }
 
         }
