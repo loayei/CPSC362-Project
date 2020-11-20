@@ -85,4 +85,18 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lName" />
+
+    <Button
+        android:id="@+id/createContactButtonontact"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:background="#651FFF"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/create_an_account"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#e0e0e0  "
+        app:layout_constraintEnd_toEndOf="@+id/phoneNumber"
+        app:layout_constraintStart_toStartOf="@+id/Password_signup"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
 </androidx.constraintlayout.widget.ConstraintLayout>
