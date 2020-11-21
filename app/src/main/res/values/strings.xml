@@ -14,4 +14,6 @@
     <string name="create_an_account">Create an account</string>
     <string name="create_contact">Create contact</string>
     <string name="Edit_contact">Edit contact</string>
+    <string name="Back">Back</string>
+    <string name="create">Create</string>
 </resources>

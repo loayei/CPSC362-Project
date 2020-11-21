@@ -2,17 +2,23 @@ package com.example.hikerapp
 
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.sign_up.*
 
 class RegistrationActivity : AppCompatActivity(){
 
+    companion object{
+        private val TAG = "RegistrationActivity"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sign_up)
-
+        val db = FirebaseFirestore.getInstance()
 
         signUpButton.setOnClickListener{
             val firstName = FName_signup.text.toString()
@@ -31,6 +37,19 @@ class RegistrationActivity : AppCompatActivity(){
                 .addOnCompleteListener {
                     if (!it.isSuccessful) return@addOnCompleteListener
                 }
+
+            val user = hashMapOf(
+                "first" to firstName,
+                "last" to lastName,
+                "phone" to phoneNo,
+                "email" to email,
+                "password" to password
+            )
+
+            db.collection("users")
+                .add(user)
+                .addOnSuccessListener { documentReference -> Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}") }
+                .addOnFailureListener{ e -> Log.w(TAG, "Error adding document", e)}
         }
 
 
