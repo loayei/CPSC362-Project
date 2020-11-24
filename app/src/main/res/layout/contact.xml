@@ -44,7 +44,21 @@
         android:layout_marginTop="14dp"
         android:background="#651FFF"
         android:fontFamily="sans-serif-medium"
-        android:text="Edit contacts"
+        android:text="@string/Edit_contact"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#e0e0e0  "
+        app:layout_constraintEnd_toEndOf="@+id/createContactButton"
+        app:layout_constraintStart_toStartOf="@+id/createContactButton"
+        app:layout_constraintTop_toBottomOf="@+id/createContactButton" />
+
+    <Button
+        android:id="@+id/backMain"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:background="#651FFF"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/Back"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#e0e0e0  "
         app:layout_constraintEnd_toEndOf="@+id/createContactButton"

@@ -29,9 +29,12 @@ class MainActivity : AppCompatActivity() {
 
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener {
-                    if(!it.isSuccessful) return@addOnCompleteListener
-                    Log.d("Login", "Login successful ${it.result?.user?.uid}")
-                    val user = FirebaseAuth.getInstance().currentUser
+                    val contact = Intent(this, ContactActivity::class.java)
+                    startActivity(contact)
+
+                    //if(!it.isSuccessful) return@addOnCompleteListener
+                    //Log.d("Login", "Login successful ${it.result?.user?.uid}")
+                    //val user = FirebaseAuth.getInstance().currentUser
                 }
                 .addOnFailureListener {
                     Toast.makeText(this, "Log in failed: ${it.message}", Toast.LENGTH_LONG).show()

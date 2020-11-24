@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundApp">
@@ -86,14 +87,14 @@
         app:layout_constraintTop_toBottomOf="@+id/lNameCon" />
 
     <Button
-        android:id="@+id/createContactButton"
+        android:id="@+id/saveButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="14dp"
         android:background="#651FFF"
         android:fontFamily="sans-serif-medium"
-        android:text="@string/create"
+        android:text="@string/save_edit"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#e0e0e0  "
         app:layout_constraintEnd_toEndOf="@+id/phoneNumberCon"
@@ -101,7 +102,7 @@
         app:layout_constraintTop_toBottomOf="@+id/phoneNumberCon" />
 
     <Button
-        android:id="@+id/backCreateContact"
+        android:id="@+id/backEditContact"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"

@@ -19,7 +19,9 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-        <activity android:name=".RegistrationActivity">
+        <activity android:name=".RegistrationActivity"/>
+        <activity android:name=".ContactActivity"/>
+        <activity android:name=".CreateContactActivity">
         </activity>
     </application>
 

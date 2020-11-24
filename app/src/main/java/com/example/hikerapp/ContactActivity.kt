@@ -15,7 +15,7 @@ class ContactActivity : AppCompatActivity(){
         createContactButton.setOnClickListener {
             Log.d("Contact Activity", "Go to create contact")
 
-            val createContact = Intent(this, RegistrationActivity::class.java)
+            val createContact = Intent(this, CreateContactActivity::class.java)
             startActivity(createContact)
         }
     }
