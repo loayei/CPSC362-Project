@@ -21,7 +21,9 @@
             android:resource="@array/preloaded_fonts" />
         <activity android:name=".RegistrationActivity"/>
         <activity android:name=".ContactActivity"/>
-        <activity android:name=".CreateContactActivity">
+        <activity android:name=".CreateContactActivity"/>
+        <activity android:theme="@android:style/Theme.Dialog" android:name=".DeleteContactActivity">
+
         </activity>
     </application>
 

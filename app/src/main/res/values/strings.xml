@@ -17,4 +17,8 @@
     <string name="Back">Back</string>
     <string name="create">Create</string>
     <string name="save_edit">Save Changes</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="warning">Are you sure you want to delete contact?</string>
 </resources>

@@ -18,5 +18,15 @@ class ContactActivity : AppCompatActivity(){
             val createContact = Intent(this, CreateContactActivity::class.java)
             startActivity(createContact)
         }
+
+        editContactButton.setOnClickListener{
+            val editContact = Intent(this, EditContactActivity::class.java)
+            startActivity(editContact)
+        }
+
+        backMain.setOnClickListener{
+            val mainAct = Intent(this, MainActivity::class.java)
+            startActivity(mainAct)
+        }
     }
 }

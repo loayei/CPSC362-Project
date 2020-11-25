@@ -1,14 +1,18 @@
 package com.example.hikerapp
 
+import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.contact_list.*
 import kotlinx.android.synthetic.main.create_contact.*
 import kotlinx.android.synthetic.main.edit_contact.*
 import kotlinx.android.synthetic.main.edit_contact.fNameCon
@@ -37,37 +41,60 @@ class EditContactActivity :AppCompatActivity(){
         val adapter = ArrayAdapter(this, R.layout.listview_item, cList)
 
         val listView:ListView = findViewById(R.id.contact_list)
-        listView.setAdapter(adapter)
+        listView.adapter = adapter
 
-        listView.onItemClickListener = object : AdapterView.OnItemClickListener{
-            override fun onItemClick(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                setContentView(R.layout.edit_contact)
-                var item = parent?.getItemAtPosition(position)
-                item = item.toString()
+        listView.onItemClickListener =
+            AdapterView.OnItemClickListener { parent, view, position, id ->
 
-                saveButton.setOnClickListener {
-                    val firstName = fNameCon.text.toString()
-                    val lastName = lNameCon.text.toString()
-                    val phoneNumber = phoneNumberCon.text.toString()
+                val alertDialog: AlertDialog? = this.let {
+                    val builder = AlertDialog.Builder(it)
+                    builder.apply{
+                        var item = parent?.getItemAtPosition(position)
+                        setPositiveButton(R.string.edit) { dialog, id ->
+                            //Going to edit contact screen
+                            setContentView(R.layout.edit_contact)
+                            //var item = parent?.getItemAtPosition(position)
 
-                    if(firstName.isNotEmpty()){
-                        db.collection("users").document(user?.email.toString())
-                        .collection("contacts").document(item).update("first", firstName)}
+                            saveButton.setOnClickListener {
+                                val firstName = fNameCon.text.toString()
+                                val lastName = lNameCon.text.toString()
+                                val phoneNumber = phoneNumberCon.text.toString()
 
-                    if(lastName.isNotEmpty()){
-                        db.collection("users").document(user?.email.toString())
-                            .collection("contacts").document(item).update("last", lastName)}
+                                if (firstName.isNotEmpty()) {
+                                    db.collection("users").document(user?.email.toString())
+                                        .collection("contacts").document(item as String)
+                                        .update("first", firstName)
+                                }
 
-                    if(phoneNumber.isNotEmpty()){
-                        db.collection("users").document(user?.email.toString())
-                            .collection("contacts").document(item).update("phone", phoneNumber)}
+                                if (lastName.isNotEmpty()) {
+                                    db.collection("users").document(user?.email.toString())
+                                        .collection("contacts").document(item as String)
+                                        .update("last", lastName)
+                                }
+
+                                if (phoneNumber.isNotEmpty()) {
+                                    db.collection("users").document(user?.email.toString())
+                                        .collection("contacts").document(item as String)
+                                        .update("phone", phoneNumber)
+                                }
+                            }
+
+                            backEditContact.setOnClickListener {
+                                setContentView(R.layout.contact_list)
+                            }
+                        }
+                        setNegativeButton(R.string.delete) { dialog, id ->
+                            val deleteContact = Intent(this@EditContactActivity, DeleteContactActivity::class.java)
+                            deleteContact.putExtra("contact", item as String)
+                            startActivity(deleteContact)
+                        }
+                    }
+                    builder.create()
                 }
             }
+        backContactActivity.setOnClickListener{
+            val contactOptions = Intent(this, ContactActivity::class.java)
+            startActivity(contactOptions)
         }
     }
 }
