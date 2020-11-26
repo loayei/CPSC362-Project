@@ -8,8 +8,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.contact.*
 
 class ContactActivity : AppCompatActivity(){
-    override fun onCreate(savedInstance: Bundle?){
-        super.onCreate(savedInstance)
+    override fun onCreate(savedInstanceState: Bundle?){
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.contact)
 
         createContactButton.setOnClickListener {
@@ -20,7 +20,7 @@ class ContactActivity : AppCompatActivity(){
         }
 
         editContactButton.setOnClickListener{
-            val editContact = Intent(this, EditContactActivity::class.java)
+            val editContact = Intent(this, ContactListActivity::class.java)
             startActivity(editContact)
         }
 

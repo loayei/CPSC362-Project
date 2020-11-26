@@ -16,7 +16,7 @@ class CreateContactActivity: AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
         val user = Firebase.auth.currentUser
 
-        createContactButton.setOnClickListener(){
+        createContactButton.setOnClickListener {
             val firstName = fNameCon.text.toString()
             val lastName = lNameCon.text.toString()
             val phoneNumber = phoneNumberCon.text.toString()
@@ -35,6 +35,10 @@ class CreateContactActivity: AppCompatActivity() {
             db.collection("users").document(user?.email.toString())
                 .collection("contacts").document(phoneNumber).set(contact)
 
+            val contactActivity = Intent(this, ContactActivity::class.java)
+            startActivity(contactActivity)
+        }
+        backCreateContact.setOnClickListener{
             val contactActivity = Intent(this, ContactActivity::class.java)
             startActivity(contactActivity)
         }
