@@ -2,6 +2,7 @@ package com.example.hikerapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.GetChars
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -20,7 +21,7 @@ class ContactActivity : AppCompatActivity(){
         }
 
         editContactButton.setOnClickListener{
-            val editContact = Intent(this, ContactListActivity::class.java)
+            val editContact = Intent(this, GetContactsActivity::class.java)
             startActivity(editContact)
         }
 

@@ -24,6 +24,7 @@
         <activity android:name=".CreateContactActivity"/>
         <activity android:name=".ContactListActivity"/>
         <activity android:name=".EditContactActivity"/>
+        <activity android:name=".GetContactsActivity"/>
         <activity android:theme="@android:style/Theme.Dialog" android:name=".DeleteContactActivity">
 
         </activity>
