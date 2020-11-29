@@ -30,7 +30,7 @@ class ContactListActivity :AppCompatActivity(){
 
         recyclerView.apply{
             layoutManager = LinearLayoutManager(this@ContactListActivity)
-            adapter = dList?.let { ListAdapter(it) }
+            adapter = dList?.let { ListAdapter(this@ContactListActivity, it) }
 
             //adapter.onItemClick = {
 
