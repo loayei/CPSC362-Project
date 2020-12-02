@@ -2,14 +2,11 @@ package com.example.hikerapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.sign_up.*
 
 class RegistrationActivity : AppCompatActivity(){
@@ -40,8 +37,7 @@ class RegistrationActivity : AppCompatActivity(){
                 .addOnCompleteListener {
                     val main = Intent(this, MainActivity::class.java)
                     startActivity(main)
-
-                    //if (!it.isSuccessful) return@addOnCompleteListener
+                    finish()
                 }
 
             val user = hashMapOf(

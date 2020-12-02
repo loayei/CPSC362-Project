@@ -35,12 +35,14 @@ class CreateContactActivity: AppCompatActivity() {
             db.collection("users").document(user?.email.toString())
                 .collection("contacts").document(phoneNumber).set(contact)
 
-            val contactActivity = Intent(this, ContactActivity::class.java)
+            val contactActivity = Intent(this, GetContactsActivity::class.java)
             startActivity(contactActivity)
+            finish()
         }
         backCreateContact.setOnClickListener{
             val contactActivity = Intent(this, ContactActivity::class.java)
             startActivity(contactActivity)
+            finish()
         }
     }
 }

@@ -6,15 +6,12 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.contact_row.view.*
 
-class ListAdapter(val context: Context, val list: List<String>): RecyclerView.Adapter<ListAdapter.ViewHolder>() {
+class ListAdapter(val context: Context, val list: List<String>, val pList: List<String>): RecyclerView.Adapter<ListAdapter.ViewHolder>() {
     class ViewHolder(view: View):RecyclerView.ViewHolder(view) {
-        var onItemClick: ((String) -> Unit)? = null
         val contactName: TextView = view.contact
 
         init{
@@ -22,14 +19,6 @@ class ListAdapter(val context: Context, val list: List<String>): RecyclerView.Ad
 
             }
         }
-
-        //fun bind(entry: String, clickListener: AdapterView.OnItemClickListener){
-          //  contactName.text = entry
-
-            //itemView.setOnClickListener{
-              //  clickListener.invoke(entry)
-            //}
-       // }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -39,9 +28,7 @@ class ListAdapter(val context: Context, val list: List<String>): RecyclerView.Ad
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val contact: String = list[position]
-        //holder.bind(list[position], itemClickListener)
         holder.contactName.text = contact
-        //holder.itemView.setOnClickListener{ listener(contact)}
         holder.itemView.setOnClickListener{
             val builder = AlertDialog.Builder(context)
 
@@ -50,13 +37,15 @@ class ListAdapter(val context: Context, val list: List<String>): RecyclerView.Ad
 
             builder.setPositiveButton(R.string.edit){dialog, which ->
                 val editCon = Intent(context, EditContactActivity::class.java)
+                editCon.putExtra("phone", pList[position])
                 context.startActivity(editCon)
             }
             builder.setNegativeButton(R.string.delete){dialog, which ->
                 val delCon = Intent(context, DeleteContactActivity::class.java)
+                delCon.putExtra("phone", pList[position])
                 context.startActivity(delCon)
             }
-            builder.setNeutralButton(R.string.Back){dialog, which ->
+            builder.setNeutralButton(R.string.cancel){dialog, which ->
 
             }
             builder.create()
